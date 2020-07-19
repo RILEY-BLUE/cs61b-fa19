@@ -6,6 +6,7 @@ public class DebugExercise2 {
     /** Returns the max of a and b. Do not step into this function. 
       * This function may have a bug, but if it does, you should find it
       * by stepping over, not into. */
+    /** The following has a bug. I am gonna replace it with a new one. */
     public static int max(int a, int b) {
         int w = (b - a) >> 31;
         /* If you're stepping into this function, click the
@@ -15,11 +16,18 @@ public class DebugExercise2 {
         int max = b & w | a & z;
         return max;
     }
+    /** The new one is called Max. */
+    public static int Max (int a, int b) {
+        if (a >= b) {
+            return a;
+        }
+        return b;
+    }
 
 
     /** Returns the sum of a and b. Do not step into this function. 
       * This function may have a bug, but if it does, you should find it
-      * by stepping over, not into. */    
+      * by stepping over, not into. */
     public static int add(int a, int b) {
         int x = a, y = b;
         /* If you're stepping into this function, click the
@@ -48,7 +56,7 @@ public class DebugExercise2 {
         }
         int[] returnArray = new int[a.length];
         for (int i = 0; i < a.length; i += 1) {
-            int biggerValue = max(a[i], b[i]);
+            int biggerValue = Max(a[i], b[i]); //
             returnArray[i] = biggerValue;
         }
 
@@ -60,7 +68,7 @@ public class DebugExercise2 {
         int i = 0;
         int sum = 0;
         while (i < x.length) {
-            sum = sum + add(sum, x[i]);
+            sum = add(sum, x[i]);
             i = i + 1;
         }
         return sum;
