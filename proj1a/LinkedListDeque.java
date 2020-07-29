@@ -106,9 +106,9 @@ public class LinkedListDeque<Flipflop> {
     public void printDeque() {
         StuffNode ptr = sentinel;
         while (ptr.next != null) {
+            ptr = ptr.next;
             System.out.print(ptr.item);
             System.out.print(" ");
-            ptr = ptr.next;
         }
         System.out.println();
     }
