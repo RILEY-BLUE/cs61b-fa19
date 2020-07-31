@@ -108,12 +108,16 @@ public class ArrayDeque<Flipflop> {
     /** Creates a deep copy of other. */
     public ArrayDeque(ArrayDeque other) {
         size = 0;
-        items = (Flipflop[]) new Object[8];
+        items = (Flipflop[]) new Object[other.items.length];
         nextFirst = 4;
         nextLast = 5;
-        for (int i = plusOne(other.nextFirst); i != other.nextLast; i = plusOne(i)) {
-            addLast((Flipflop)other.get(i)); // needs (Flipflop) to cast
+        int begin = plusOne(other.nextFirst);
+        int end = other.nextLast;
+        do {
+            addLast((Flipflop)other.get(begin)); // needs (Flipflop) to cast
+            begin = plusOne(begin);
         }
+        while(begin != end);
     }
 
     /** Resizes the list. */
@@ -122,7 +126,7 @@ public class ArrayDeque<Flipflop> {
         if(size == items.length) {
             resizeHelper(items.length * 2);
         }
-        /** if usage factor drops under 25% when item.length is larger than 8, reduces list's by half. */
+        /** if usage factor drops under 25% when item.length is larger than 8, reduces list's length by half. */
         if(size < items.length / 4 && items.length > 8) {
             resizeHelper(items.length / 2);
         }
@@ -148,10 +152,14 @@ public class ArrayDeque<Flipflop> {
     /** Prints the items in the deque from first to last, separated by a space.
      * Once all the items have been printed, print out a new line. */
     public void printDeque() {
-        for (int i = plusOne(nextFirst); i != nextLast; i = plusOne(i)) {
-            System.out.print(items[i]);
+        int begin = plusOne(nextFirst);
+        int end = nextLast;
+        do {
+            System.out.print(items[begin]);
             System.out.print(' ');
+            begin = plusOne(begin);
         }
+        while (begin != end);
         System.out.println();
     }
 
@@ -161,13 +169,13 @@ public class ArrayDeque<Flipflop> {
         for(int i = 0; i < 8; i += 1) {
             test.addFirst(i);
         }
+        ArrayDeque copy = new ArrayDeque(test);
+        copy.printDeque();
         test.addLast(8);
         test.addFirst(9);
         for(int i = 0; i < 7; i += 1) {
             test.removeLast();
         }
         test.printDeque();
-        //ArrayDeque copy = new ArrayDeque(test);
-        //copy.printDeque();
     }
 }
