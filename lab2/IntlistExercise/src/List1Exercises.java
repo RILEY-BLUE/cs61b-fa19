@@ -26,6 +26,16 @@ public class List1Exercises {
         return ptr;
     }
 
+    /** Using recursive method to do the dincrListRec */
+    public static IntList dincrListRec(IntList L, int x) {
+     if (L == null) {
+      return L;
+	 }
+     L.first += x;
+     dincrListRec (L.rest, x);
+     return L;
+	}
+
     public static void main(String[] args) {
         IntList L = new IntList(5, null);
         L.rest = new IntList(7, null);
@@ -39,6 +49,7 @@ public class List1Exercises {
         // run it in the visualizer.
          System.out.println(L.get(1));
          System.out.println(incrList(L, 3).get(0));
-         System.out.println(dincrList(L, 3).get(2));
+         System.out.println(dincrList(L, 3).get(1));
+         System.out.println(dincrListRec(L, 3).get(1));
     }
 }
