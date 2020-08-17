@@ -11,6 +11,7 @@ import java.util.ArrayList; // A quick touch to make failure sequences.
 import java.util.List;
 
 public class TestArrayDequeGold {
+
     @Test
     public void testArrayDeque() {
         ArrayDequeSolution<Integer> ads = new ArrayDequeSolution<>();
@@ -72,8 +73,8 @@ public class TestArrayDequeGold {
             actualList.add(ads.removeLast());
             expectedList.add(sad.removeLast());
         }
-        int actual = ads.size();
-        int expected = sad.size();
+        Integer actual = ads.size();
+        Integer expected = sad.size();
         assertEquals("removeLast()",
                 expected, actual);
         for (int i=0; i<10; i++) {
@@ -97,8 +98,8 @@ public class TestArrayDequeGold {
         actual = sad1.get(0);
         assertEquals("addFirst(" + numberBetweenZeroAndOneHundred
                 + ")\n", expect, actual);
-        System.out.println("addFirst(" + numberBetweenZeroAndOneHundred
-                + ")");
+        //System.out.println("addFirst(" + numberBetweenZeroAndOneHundred
+         //       + ")");
 
         //addLast
         numberBetweenZeroAndOneHundred = StdRandom.uniform(100);
@@ -109,19 +110,19 @@ public class TestArrayDequeGold {
         actual = sad1.get(1);
         assertEquals("addLast(" + numberBetweenZeroAndOneHundred
                 + ")\n", expect, actual);
-        System.out.println("addLast(" + numberBetweenZeroAndOneHundred
-                + ")");
+        //System.out.println("addLast(" + numberBetweenZeroAndOneHundred
+          //      + ")");
 
         //removeFirst
         expect = sad2.removeFirst();
         actual = sad1.removeFirst();
         assertEquals("removeFirst()\n", expect, actual);
-        System.out.println("removeFirst()");
+        //System.out.println("removeFirst()");
 
         //removeLast
         expect = sad2.removeLast();
         actual = sad1.removeLast();
         assertEquals("removeLast()\n", expect, actual);
-        System.out.println("removeLast()");
+        //System.out.println("removeLast()");
     }
 }
