@@ -16,6 +16,7 @@ public class TestArrayDequeGold {
     public void testArrayDeque() {
         ArrayDequeSolution<Integer> ads = new ArrayDequeSolution<>();
         StudentArrayDeque<Integer> sad = new StudentArrayDeque<>();
+        /*
         // addLast
         for (int i=0; i<10; i++) {
             int random = StdRandom.uniform(100);
@@ -23,8 +24,8 @@ public class TestArrayDequeGold {
             sad.addLast(random);
         }
         for (int i=0; i<10; i++) {
-            int actual = ads.get(i);
-            int expected = sad.get(i);
+            Integer actual = ads.get(i);
+            Integer expected = sad.get(i);
             assertEquals("Oh noooo!\nThis is bad in addLast():\n   Random number " + actual
                             + " not equal to " + expected + "!",
                     expected, actual);
@@ -37,8 +38,8 @@ public class TestArrayDequeGold {
             sad.addFirst(random);
         }
         for (int i=0; i<10; i++) {
-            int actual = ads.get(i);
-            int expected = sad.get(i);
+            Integer actual = ads.get(i);
+            Integer expected = sad.get(i);
             assertEquals("Oh noooo!\nThis is bad in addFirst():\n   Random number " + actual
                             + " not equal to " + expected + "!",
                     expected, actual);
@@ -52,8 +53,8 @@ public class TestArrayDequeGold {
             expectedList.add(sad.removeFirst());
         }
         for (int i=0; i<10; i++) {
-            int actual = ads.get(i);
-            int expected = sad.get(i);
+            Integer actual = ads.get(i);
+            Integer expected = sad.get(i);
             assertEquals("removeFirst()",
                     expected, actual);
         }
@@ -63,20 +64,27 @@ public class TestArrayDequeGold {
             assertEquals("Oh noooo!\nThis is bad in removeFirst():\n   Random number " + actual
                             + " not equal to " + expected + "!",
                     expected, actual);
-        }
+        }*/
 
 
         // removeLast
-        actualList.clear();
-        expectedList.clear();
+        //actualList.clear();
+        //expectedList.clear();
+        List<Integer> actualList = new ArrayList<>();
+        List<Integer> expectedList = new ArrayList<>();
         for (int i=0; i<10; i++) {
-            actualList.add(ads.removeLast());
-            expectedList.add(sad.removeLast());
+            int random = StdRandom.uniform(100);
+            ads.addFirst(random);
+            sad.addFirst(random);
         }
-        Integer actual = ads.size();
-        Integer expected = sad.size();
-        assertEquals("removeLast()",
-                expected, actual);
+        for (int i=0; i<10; i++) {
+            actualList.add(sad.removeLast());
+            expectedList.add(ads.removeLast());
+        }
+        //Integer actual = ads.size();
+        //Integer expected = sad.size();
+        //assertEquals("removeLast()",
+                //expected, actual);
         for (int i=0; i<10; i++) {
             assertEquals("removeLast()",
                     expectedList.get(i), actualList.get(i));
