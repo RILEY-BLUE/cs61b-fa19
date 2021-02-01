@@ -82,7 +82,7 @@ public class UnionFind {
         while (items[root] > 0) {
             root = items[root];
         }
-        while (items[vertex] != root) {
+        while (vertex != root) {
             next = items[vertex];
             items[vertex] = root;
             vertex = next;
