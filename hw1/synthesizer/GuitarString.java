@@ -1,5 +1,6 @@
-package es.datastructur.synthesizer;
+package synthesizer;
 import edu.princeton.cs.introcs.StdAudio;
+import synthesizer.BoundedQueue;
 
 //Note: This file will not compile until you complete task 1 (BoundedQueue).
 public class GuitarString {
